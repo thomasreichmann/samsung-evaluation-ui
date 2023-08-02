@@ -1,4 +1,3 @@
 export const environment = {
-  apiUrl:
-    'https://sdshealthcheck.cellologistics.com.br/sds-devs-evaluation/evaluation',
+  apiUrl: 'localhost:8000',
 };
