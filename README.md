@@ -29,7 +29,7 @@ Recomendamos que acessem os links fornecidos para ver a aplicação em ação em
 
 ## Repositório Backend
 
-O backend desta aplicação foi desenvolvido usando Spring Boot e está hospedado em um repositório separado. Você pode acessar e revisar o código do backend [aqui](https:github.com/thomasreichmann/samsung-evaluation-api).
+O backend desta aplicação foi desenvolvido usando Spring Boot e está hospedado em um repositório separado. Você pode acessar e revisar o código do backend [Link para o repositório](https://github.com/thomasreichmann/samsung-evaluation-api).
 
 ## Instruções para Execução
 
