@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "samsung-evaluation-ui",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "samsung-evaluation-ui": {
+      "hosting": {
+        "samsung-evaluation-ui": [
+          "samsung-evaluation-ui"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "samsung-evaluation-ui"
+  }
+}
