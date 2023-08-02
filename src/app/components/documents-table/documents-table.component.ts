@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Currency } from '../../models/currency.model';
 import { Document } from '../../models/document.model';
 
@@ -6,9 +6,29 @@ import { Document } from '../../models/document.model';
   selector: 'app-documents-table',
   templateUrl: './documents-table.component.html',
 })
-export class DocumentsTableComponent {
+export class DocumentsTableComponent implements OnChanges {
   @Input() documents: Document[] = [];
   @Input() currencies: Currency[] = [];
+
+  displayedColumns: string[] = this.getBaseColumns();
+
+  ngOnChanges(): void {
+    this.displayedColumns = this.getBaseColumns();
+
+    this.currencies.forEach((currency) => {
+      this.displayedColumns.push(currency.currencyCode);
+    });
+  }
+
+  getBaseColumns(): string[] {
+    return [
+      'documentNumber',
+      'documentDate',
+      'currencyCode',
+      'currencyDesc',
+      'documentValue',
+    ];
+  }
 
   getConvertedValue(document: Document, currencyCode: string): number | null {
     const conversion = document.convertedCurrencies.find(

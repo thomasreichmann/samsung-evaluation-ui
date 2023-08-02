@@ -9,6 +9,7 @@ import { DocumentsTableComponent } from './components/documents-table/documents-
 import { FiltersComponent } from './components/filters/filters.component';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [AppComponent, FiltersComponent, DocumentsTableComponent],
@@ -18,6 +19,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HttpClientModule,
     FormsModule,
     MatProgressSpinnerModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,24 +1,41 @@
-<table *ngIf="documents.length">
-  <thead>
-    <tr>
-      <th>Document Number</th>
-      <th>Date</th>
-      <th>Currency Code</th>
-      <th>Currency Desc</th>
-      <th>Document Value</th>
-      <th *ngFor="let currency of currencies">{{ currency.currencyCode }}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let doc of documents">
-      <td>{{ doc.documentNumber }}</td>
-      <td>{{ doc.documentDate }}</td>
-      <td>{{ doc.currencyCode }}</td>
-      <td>{{ getCurrency(doc.currencyCode)?.currencyDesc }}</td>
-      <td>{{ doc.documentValue }}</td>
-      <td *ngFor="let currency of currencies">
-        {{ getConvertedValue(doc, currency.currencyCode) }}
-      </td>
-    </tr>
-  </tbody>
+<table *ngIf="documents.length" mat-table [dataSource]="documents">
+  <ng-container matColumnDef="documentNumber">
+    <th mat-header-cell *matHeaderCellDef>Document Number</th>
+    <td mat-cell *matCellDef="let document">{{ document.documentNumber }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="documentDate">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let document">{{ document.documentDate }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="currencyCode">
+    <th mat-header-cell *matHeaderCellDef>Currency Code</th>
+    <td mat-cell *matCellDef="let document">{{ document.currencyCode }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="currencyDesc">
+    <th mat-header-cell *matHeaderCellDef>Currency Desc</th>
+    <td mat-cell *matCellDef="let document">
+      {{ getCurrency(document.currencyCode)?.currencyDesc }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="documentValue">
+    <th mat-header-cell *matHeaderCellDef>Document Value</th>
+    <td mat-cell *matCellDef="let document">{{ document.documentValue }}</td>
+  </ng-container>
+
+  <ng-container
+    *ngFor="let currency of currencies"
+    [matColumnDef]="currency.currencyCode"
+  >
+    <th mat-header-cell *matHeaderCellDef>{{ currency.currencyCode }}</th>
+    <td mat-cell *matCellDef="let document">
+      {{ getConvertedValue(document, currency.currencyCode) }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
