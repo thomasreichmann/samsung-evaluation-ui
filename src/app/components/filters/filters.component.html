@@ -1,1 +1,11 @@
-<p>filters works!</p>
+<div class="filters-container">
+  <input [(ngModel)]="documentNumber" placeholder="Document Number" />
+  <select [(ngModel)]="selectedCurrency">
+    <option *ngFor="let currency of currencies" [value]="currency.currencyCode">
+      {{ currency.currencyDesc }}
+    </option>
+  </select>
+  <input [(ngModel)]="startDate" type="date" placeholder="Start Date" />
+  <input [(ngModel)]="endDate" type="date" placeholder="End Date" />
+  <button (click)="onRefresh()">Refresh</button>
+</div>
