@@ -10,6 +10,8 @@ import { DocumentService } from './services/document.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  loading: boolean = false;
+
   documents: Document[] = [];
   currencies: Currency[] = [];
   filters: any = {};
@@ -25,12 +27,20 @@ export class AppComponent implements OnInit {
   }
 
   loadCurrencies(): void {
-    this.currencyService.getCurrencies().subscribe((data) => {
-      this.currencies = data;
+    this.loading = true;
+    this.currencyService.getCurrencies().subscribe({
+      next: (data) => {
+        this.currencies = data;
+      },
+      error: (error) => {
+        console.error(error);
+        this.loading = false;
+      },
     });
   }
 
   loadDocuments(): void {
+    this.loading = true;
     this.documentService
       .getDocuments(
         this.filters.documentNumber,
@@ -38,8 +48,15 @@ export class AppComponent implements OnInit {
         this.filters.startDate,
         this.filters.endDate
       )
-      .subscribe((data) => {
-        this.documents = data;
+      .subscribe({
+        next: (data) => {
+          this.documents = data;
+          this.loading = false;
+        },
+        error: (error) => {
+          console.error(error);
+          this.loading = false;
+        },
       });
   }
 
