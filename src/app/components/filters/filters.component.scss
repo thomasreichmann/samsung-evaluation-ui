@@ -12,6 +12,18 @@
 
 .date-form {
   max-width: 150px;
+  flex: 1 1 auto; /* grow and shrink at the same rate with auto base width */
+  min-width: 0; /* Allows the form field to shrink below content size */
+}
+
+span {
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 520px) {
+  span {
+    display: none;
+  }
 }
 
 .form-container {
@@ -19,24 +31,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2em;
+  gap: 1em;
 
   &.justify-end {
     justify-content: flex-end;
   }
-}
-
-#currency-select {
-  width: 80%;
-  max-width: max-content;
-}
-
-#start-date-container {
-  span {
-    margin-right: 1em;
-  }
-}
-
-#date-picker-divider {
-  margin-bottom: 15px;
 }

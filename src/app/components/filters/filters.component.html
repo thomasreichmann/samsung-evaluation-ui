@@ -1,12 +1,21 @@
 <form (ngSubmit)="onRefresh()" class="filters-container">
-  <mat-grid-list cols="4" rowHeight="70px">
-    <mat-grid-tile colspan="2" style="display: flex; gap: 2em">
+  <mat-grid-list [cols]="cols" [rowHeight]="rowHeight" gutterSize="1em">
+    <mat-grid-tile>
       <div class="form-container">
         <mat-form-field class="filter-form">
           <mat-label>Document Number</mat-label>
-          <input matInput type="text" [(ngModel)]="documentNumber" />
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="documentNumber"
+            name="documentNumber"
+          />
         </mat-form-field>
-        <mat-form-field class="filter-form" id="currency-select">
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="form-container">
+        <mat-form-field class="filter-form">
           <mat-select [(ngModel)]="selectedCurrency" name="currency">
             <mat-option value="" disabled>Selecione...</mat-option>
             <mat-option
@@ -19,26 +28,30 @@
         </mat-form-field>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile colspan="2">
-      <div class="form-container justify-end">
-        <div id="start-date-container">
-          <span>Document Date</span>
-          <mat-form-field class="date-form">
-            <input
-              matInput
-              [(ngModel)]="startDate"
-              [matDatepicker]="startPicker"
-            />
-            <mat-datepicker-toggle
-              matIconSuffix
-              [for]="startPicker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #startPicker></mat-datepicker>
-          </mat-form-field>
-        </div>
-        <span id="date-picker-divider">~</span>
+    <mat-grid-tile [colspan]="cols > 1 ? 2 : 1">
+      <div id="date-form-container" class="form-container justify-end">
+        <span>Document Date</span>
         <mat-form-field class="date-form">
-          <input matInput [(ngModel)]="endDate" [matDatepicker]="endPicker" />
+          <input
+            matInput
+            [(ngModel)]="startDate"
+            [matDatepicker]="startPicker"
+            name="startDate"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="startPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+        </mat-form-field>
+        <!-- <span id="date-picker-divider">~</span> -->
+        <mat-form-field class="date-form">
+          <input
+            matInput
+            [(ngModel)]="endDate"
+            [matDatepicker]="endPicker"
+            name="endDate"
+          />
           <mat-datepicker-toggle
             matIconSuffix
             [for]="endPicker"
@@ -47,8 +60,7 @@
         </mat-form-field>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile colspan="3" />
-    <mat-grid-tile colspan="1">
+    <mat-grid-tile [colspan]="cols">
       <div class="form-container justify-end">
         <button mat-raised-button color="primary" (click)="onRefresh()">
           Search

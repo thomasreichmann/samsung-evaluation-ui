@@ -18,6 +18,7 @@ import {
   MAT_DATE_LOCALE,
 } from '@angular/material/core';
 
+import { LayoutModule } from '@angular/cdk/layout';
 import { DatePipe } from '@angular/common';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
@@ -35,6 +36,7 @@ import { MatTableModule } from '@angular/material/table';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    LayoutModule,
     MatMomentDateModule,
     MatProgressSpinnerModule,
     MatTableModule,

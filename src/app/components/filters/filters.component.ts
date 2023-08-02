@@ -1,3 +1,8 @@
+import {
+  BreakpointObserver,
+  BreakpointState,
+  Breakpoints,
+} from '@angular/cdk/layout';
 import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Currency } from '../../models/currency.model';
@@ -16,7 +21,23 @@ export class FiltersComponent {
   endDate: string = '';
   documentNumber: string = '';
 
-  constructor(private datePipe: DatePipe) {}
+  cols: number = 4;
+  rowHeight: string = '70px';
+
+  constructor(
+    private datePipe: DatePipe,
+    breakpointObserver: BreakpointObserver
+  ) {
+    breakpointObserver
+      .observe([Breakpoints.XSmall, Breakpoints.Small])
+      .subscribe((state: BreakpointState) => {
+        if (!state.matches) {
+          this.cols = 4;
+        } else {
+          this.cols = 1;
+        }
+      });
+  }
 
   onRefresh(): void {
     const filters = {
