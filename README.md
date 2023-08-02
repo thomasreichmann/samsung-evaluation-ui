@@ -1,27 +1,39 @@
-# SamsungEvaluationUi
+# Projeto de Avaliação Samsung SDS - Interface de Usuário
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
+Este é o repositório do frontend da aplicação desenvolvida como parte do processo seletivo para a posição na Samsung SDS.
 
-## Development server
+## Descrição
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Esta aplicação foi desenvolvida com o objetivo de gerenciar e visualizar documentos relacionados a finanças ou contabilidade em um contexto multi-moeda. Através dela, é possível visualizar documentos, suas moedas associadas, e as cotações de moedas baseadas em datas específicas.
 
-## Code scaffolding
+## Funcionalidades Principais
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Visualização e listagem de documentos com seus valores convertidos em diferentes moedas.
+- Filtragem de documentos com base em critérios específicos.
+- Integração com uma API backend para recuperação de dados de documentos, moedas e cotações.
 
-## Build
+## Tecnologias Utilizadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular para o desenvolvimento do frontend.
+- Angular Material para componentes da interface de usuário.
+- Integração com uma API backend desenvolvida com Spring Boot.
 
-## Running unit tests
+## Deployment da Aplicação
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+A aplicação está atualmente hospedada e pode ser acessada online:
 
-## Running end-to-end tests
+- **Frontend**: A interface de usuário foi hospedada através do Firebase e está disponível no seguinte link: [samsung.thomasar.dev].
+- **Backend**: A API do backend está sendo executada em uma instância AWS EC2 e pode ser acessada através do seguinte link: [api.samsung.thomasar.dev].
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Recomendamos que acessem os links fornecidos para ver a aplicação em ação em um ambiente de produção.
 
-## Further help
+## Repositório Backend
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+O backend desta aplicação foi desenvolvido usando Spring Boot e está hospedado em um repositório separado. Você pode acessar e revisar o código do backend [aqui](https:github.com/thomasreichmann/samsung-evaluation-api).
+
+## Instruções para Execução
+
+1. Clone este repositório.
+2. Navegue até a pasta raiz do projeto e instale as dependências com `npm install`.
+3. Execute a aplicação com `ng serve`.
+4. Abra seu navegador e acesse `http://localhost:4200` para visualizar a aplicação.
