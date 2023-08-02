@@ -1,4 +1,5 @@
+@use "@angular/material" as mat;
+
 .filters-container {
-  display: flex;
-  justify-content: space-between;
+  @include mat.elevation(2);
 }

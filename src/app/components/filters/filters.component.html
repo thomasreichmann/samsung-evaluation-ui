@@ -1,13 +1,26 @@
-<div class="filters-container">
-  <input [(ngModel)]="documentNumber" placeholder="Document Number" />
-  <select [(ngModel)]="selectedCurrency">
-    <option label="Selecione..." value selected disabled></option>
-    <option *ngFor="let currency of currencies" [value]="currency.currencyCode">
-      {{ currency.currencyDesc }}
-    </option>
-  </select>
-  <input [(ngModel)]="startDate" type="date" placeholder="Start Date" />
-  <input [(ngModel)]="endDate" type="date" placeholder="End Date" />
-  <button (click)="onRefresh()">Search</button>
-  <button (click)="onClean()">Clean</button>
-</div>
+<mat-grid-list class="filters-container" cols="4" rowHeight="50px">
+  <mat-grid-tile>
+    <input [(ngModel)]="documentNumber" placeholder="Document Number" />
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <select [(ngModel)]="selectedCurrency">
+      <option label="Selecione..." value selected disabled></option>
+      <option
+        *ngFor="let currency of currencies"
+        [value]="currency.currencyCode"
+      >
+        {{ currency.currencyDesc }}
+      </option>
+    </select>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    <span>Document Date</span>
+    <input [(ngModel)]="startDate" type="date" placeholder="Start Date" />
+    <input [(ngModel)]="endDate" type="date" placeholder="End Date" />
+  </mat-grid-tile>
+  <mat-grid-tile colspan="3" />
+  <mat-grid-tile colspan="1">
+    <button (click)="onRefresh()">Search</button>
+    <button (click)="onClean()">Clean</button>
+  </mat-grid-tile>
+</mat-grid-list>
