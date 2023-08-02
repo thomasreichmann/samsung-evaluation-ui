@@ -22,8 +22,8 @@ Esta aplicação foi desenvolvida com o objetivo de gerenciar e visualizar docum
 
 A aplicação está atualmente hospedada e pode ser acessada online:
 
-- **Frontend**: A interface de usuário foi hospedada através do Firebase e está disponível no seguinte link: (link)[samsung.thomasar.dev].
-- **Backend**: A API do backend está sendo executada em uma instância AWS EC2 e pode ser acessada através do seguinte link: (link)[http://35.199.99.175/currencies].
+- **Frontend**: A interface de usuário foi hospedada através do Firebase e está disponível no seguinte link: https://samsung.thomasar.dev.
+- **Backend**: A API do backend está sendo executada em uma instância AWS EC2 e pode ser acessada através do seguinte link: https://api.samsung.thomasar.dev/currencies.
 
 Recomendamos que acessem os links fornecidos para ver a aplicação em ação em um ambiente de produção.
 
