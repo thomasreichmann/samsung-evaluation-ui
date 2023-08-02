@@ -1,0 +1,9 @@
+@use "@angular/material" as mat;
+
+#table-container {
+  @include mat.elevation(1);
+  padding: 1em;
+  margin-bottom: 12px;
+
+  overflow-x: auto;
+}
