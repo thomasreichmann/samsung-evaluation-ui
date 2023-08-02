@@ -8,7 +8,7 @@ import { Document } from '../models/document.model';
   providedIn: 'root',
 })
 export class DocumentService {
-  private readonly apiUrl = environment.apiUrl;
+  private readonly apiUrl = `${environment.apiUrl}/documents`;
 
   constructor(private http: HttpClient) {}
 

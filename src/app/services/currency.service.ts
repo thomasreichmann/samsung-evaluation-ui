@@ -9,7 +9,7 @@ import { Quotation } from '../models/quotation.model';
   providedIn: 'root',
 })
 export class CurrencyService {
-  private readonly apiUrl = environment.apiUrl;
+  private readonly apiUrl = `${environment.apiUrl}/currencies`;
 
   constructor(private http: HttpClient) {}
 
