@@ -35,5 +35,5 @@ O backend desta aplicação foi desenvolvido usando Spring Boot e está hospedad
 
 1. Clone este repositório.
 2. Navegue até a pasta raiz do projeto e instale as dependências com `npm install`.
-3. Execute a aplicação com `ng serve`.
+3. Execute a aplicação com `ng serve -c development`.
 4. Abra seu navegador e acesse `http://localhost:4200` para visualizar a aplicação.
