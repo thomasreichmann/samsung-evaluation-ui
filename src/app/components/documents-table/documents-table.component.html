@@ -1,1 +1,18 @@
-<p>documents-table works!</p>
+<table *ngIf="documents.length">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Currency</th>
+      <th *ngFor="let currency of currencies">{{ currency.currencyCode }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doc of documents">
+      <td>{{ doc.documentDate }}</td>
+      <td>{{ doc.currencyCode }}</td>
+      <td *ngFor="let currency of currencies">
+        {{ getConvertedValue(doc, currency.currencyCode) }}
+      </td>
+    </tr>
+  </tbody>
+</table>
