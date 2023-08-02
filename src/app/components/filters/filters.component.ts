@@ -23,4 +23,12 @@ export class FiltersComponent {
     };
     this.refreshData.emit(filters);
   }
+
+  onClean(): void {
+    this.documentNumber = '';
+    this.selectedCurrency = '';
+    this.startDate = '';
+    this.endDate = '';
+    this.onRefresh();
+  }
 }
