@@ -2,4 +2,41 @@
 
 .filters-container {
   @include mat.elevation(2);
+  padding: 1em;
+  margin-bottom: 12px;
+}
+
+.filter-form {
+  width: 100%;
+}
+
+.date-form {
+  max-width: 150px;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+
+  &.justify-end {
+    justify-content: flex-end;
+  }
+}
+
+#currency-select {
+  width: 80%;
+  max-width: max-content;
+}
+
+#start-date-container {
+  span {
+    margin-right: 1em;
+  }
+}
+
+#date-picker-divider {
+  margin-bottom: 15px;
 }

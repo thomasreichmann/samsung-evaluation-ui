@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Currency } from '../../models/currency.model';
 
@@ -15,12 +16,14 @@ export class FiltersComponent {
   endDate: string = '';
   documentNumber: string = '';
 
+  constructor(private datePipe: DatePipe) {}
+
   onRefresh(): void {
     const filters = {
       documentNumber: this.documentNumber,
       currencyCode: this.selectedCurrency,
-      startDate: this.startDate,
-      endDate: this.endDate,
+      startDate: this.datePipe.transform(this.startDate, 'yyyy-MM-dd'),
+      endDate: this.datePipe.transform(this.endDate, 'yyyy-MM-dd'),
     };
     this.refreshData.emit(filters);
   }

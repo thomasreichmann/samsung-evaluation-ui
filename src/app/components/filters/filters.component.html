@@ -1,26 +1,62 @@
-<mat-grid-list class="filters-container" cols="4" rowHeight="50px">
-  <mat-grid-tile>
-    <input [(ngModel)]="documentNumber" placeholder="Document Number" />
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <select [(ngModel)]="selectedCurrency">
-      <option label="Selecione..." value selected disabled></option>
-      <option
-        *ngFor="let currency of currencies"
-        [value]="currency.currencyCode"
-      >
-        {{ currency.currencyDesc }}
-      </option>
-    </select>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="2">
-    <span>Document Date</span>
-    <input [(ngModel)]="startDate" type="date" placeholder="Start Date" />
-    <input [(ngModel)]="endDate" type="date" placeholder="End Date" />
-  </mat-grid-tile>
-  <mat-grid-tile colspan="3" />
-  <mat-grid-tile colspan="1">
-    <button (click)="onRefresh()">Search</button>
-    <button (click)="onClean()">Clean</button>
-  </mat-grid-tile>
-</mat-grid-list>
+<form (ngSubmit)="onRefresh()" class="filters-container">
+  <mat-grid-list cols="4" rowHeight="70px">
+    <mat-grid-tile colspan="2" style="display: flex; gap: 2em">
+      <div class="form-container">
+        <mat-form-field class="filter-form">
+          <mat-label>Document Number</mat-label>
+          <input matInput type="text" [(ngModel)]="documentNumber" />
+        </mat-form-field>
+        <mat-form-field class="filter-form" id="currency-select">
+          <mat-select [(ngModel)]="selectedCurrency" name="currency">
+            <mat-option value="" disabled>Selecione...</mat-option>
+            <mat-option
+              *ngFor="let currency of currencies"
+              [value]="currency.currencyCode"
+            >
+              {{ currency.currencyDesc }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <div class="form-container justify-end">
+        <div id="start-date-container">
+          <span>Document Date</span>
+          <mat-form-field class="date-form">
+            <input
+              matInput
+              [(ngModel)]="startDate"
+              [matDatepicker]="startPicker"
+            />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="startPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <span id="date-picker-divider">~</span>
+        <mat-form-field class="date-form">
+          <input matInput [(ngModel)]="endDate" [matDatepicker]="endPicker" />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="endPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" />
+    <mat-grid-tile colspan="1">
+      <div class="form-container justify-end">
+        <button mat-raised-button color="primary" (click)="onRefresh()">
+          Search
+        </button>
+        <button mat-raised-button color="accent" (click)="onClean()">
+          Clean
+        </button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
