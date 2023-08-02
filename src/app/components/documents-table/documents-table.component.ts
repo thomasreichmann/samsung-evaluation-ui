@@ -16,4 +16,8 @@ export class DocumentsTableComponent {
     );
     return conversion?.convertedValue || null;
   }
+
+  getCurrency(currencyCode: string): Currency | undefined {
+    return this.currencies.find((c) => c.currencyCode == currencyCode);
+  }
 }

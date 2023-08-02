@@ -1,15 +1,21 @@
 <table *ngIf="documents.length">
   <thead>
     <tr>
+      <th>Document Number</th>
       <th>Date</th>
-      <th>Currency</th>
+      <th>Currency Code</th>
+      <th>Currency Desc</th>
+      <th>Document Value</th>
       <th *ngFor="let currency of currencies">{{ currency.currencyCode }}</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let doc of documents">
+      <td>{{ doc.documentNumber }}</td>
       <td>{{ doc.documentDate }}</td>
       <td>{{ doc.currencyCode }}</td>
+      <td>{{ getCurrency(doc.currencyCode)?.currencyDesc }}</td>
+      <td>{{ doc.documentValue }}</td>
       <td *ngFor="let currency of currencies">
         {{ getConvertedValue(doc, currency.currencyCode) }}
       </td>
